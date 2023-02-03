@@ -1,0 +1,68 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: black;
+}
+section {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 50%;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: rgb(109, 101, 101);
+  border-radius: 5rem;
+  box-shadow: 1px 1px 10px gray;
+  animation: scaling 0.5s forwards;
+  opacity: 0;
+}
+button {
+  width: 10rem;
+  height: 3rem;
+  border-radius: 1rem;
+  border: none;
+  margin: 0 1rem;
+  box-shadow: 2px 2px 5px black;
+  font-size: large;
+}
+button:active {
+  background-color: black;
+  color: white;
+  box-shadow: 0 0 0;
+}
+.title {
+  padding: 1rem;
+  font-family: cursive;
+  font-size: x-large;
+  border: 2px solid black;
+  border-radius: 0.5rem;
+  box-shadow: 2px 2px 5px black;
+}
+.buttons {
+  animation: scaling 0.5s 0.5s forwards;
+  opacity: 0;
+}
+@keyframes scaling {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.time {
+  font-size: xx-large;
+  letter-spacing: 10px;
+  border-bottom: 2px solid black;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
