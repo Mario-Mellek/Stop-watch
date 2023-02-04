@@ -31,7 +31,8 @@ button {
   border: none;
   margin: 0 1rem;
   box-shadow: 2px 2px 5px black;
-  font-size: large;
+  font-size: 1.5rem;
+  font-family: cursive, sans-serif;
 }
 button:active {
   background-color: black;
@@ -40,13 +41,15 @@ button:active {
 }
 .title {
   padding: 1rem;
-  font-family: cursive;
+  font-family: cursive, sans-serif;
   font-size: x-large;
   border: 2px solid black;
   border-radius: 0.5rem;
   box-shadow: 2px 2px 5px black;
 }
 .buttons {
+  display: flex;
+  justify-content: center;
   animation: scaling 0.5s 0.5s forwards;
   opacity: 0;
 }
@@ -65,4 +68,29 @@ button:active {
   letter-spacing: 10px;
   border-bottom: 2px solid black;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+#alarm-time {
+  text-align: center;
+  background-color: black;
+  color: white;
+  width: 25%;
+  border-radius: 1rem;
+  font-size: large;
+  border: none;
+  box-shadow: 2px 2px 5px black;
+  font-size: 1.5rem;
+}
+
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+@media only screen and (600px > width) {
+  section {
+    width: 90%;
+    height: 70%;
+  }
+  .buttons {
+    width: 80%;
+  }
 }

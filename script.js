@@ -1,6 +1,8 @@
 const startBtn = document.getElementsByClassName('start')[0];
 const resetBtn = document.getElementsByClassName('reset')[0];
 const time = document.getElementsByClassName('time')[0];
+const alarmTime = document.getElementById('alarm-time');
+console.log(alarmTime.value);
 
 let secondsInterval;
 let minutes = 0;
@@ -8,10 +10,10 @@ let seconds = 0;
 
 const timer = () => {
   seconds++;
-  // minutes = Math.floor(seconds / 60);
-  if ((seconds == 60) % 60) {
+  if (seconds === 60) {
     minutes++;
     seconds = 0;
+    alarm();
   }
   time.innerHTML =
     minutes.toString().length <= 1
@@ -40,3 +42,7 @@ resetBtn.addEventListener('click', () => {
   seconds = 0;
   startBtn.innerHTML = 'Start';
 });
+
+function alarm() {
+  minutes % 5 === 0 ? console.log('alarm') : null;
+}
