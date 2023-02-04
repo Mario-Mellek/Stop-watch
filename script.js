@@ -2,7 +2,7 @@ const startBtn = document.getElementsByClassName('start')[0];
 const resetBtn = document.getElementsByClassName('reset')[0];
 const time = document.getElementsByClassName('time')[0];
 const alarmTime = document.getElementById('alarm-time');
-console.log(alarmTime.value);
+const ringTone = new Audio('./assets/Alarm.mp3');
 
 let secondsInterval;
 let minutes = 0;
@@ -41,8 +41,9 @@ resetBtn.addEventListener('click', () => {
   minutes = 0;
   seconds = 0;
   startBtn.innerHTML = 'Start';
+  alarmTime.value = '0';
 });
 
 function alarm() {
-  minutes % 5 === 0 ? console.log('alarm') : null;
+  minutes === parseInt(alarmTime.value) ? ringTone.play() : null;
 }
