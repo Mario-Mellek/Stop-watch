@@ -1,7 +1,8 @@
 const startBtn = document.getElementsByClassName('start')[0];
 const resetBtn = document.getElementsByClassName('reset')[0];
 const time = document.getElementsByClassName('time')[0];
-const alarmTime = document.getElementById('alarm-time');
+const alarmTime = document.getElementById('alarm-time--minutes');
+const alarmTimeSeconds = document.getElementById('alarm-time--seconds');
 const ringTone = new Audio('./assets/Alarm.mp3');
 
 let secondsInterval;
@@ -10,10 +11,10 @@ let seconds = 0;
 
 const timer = () => {
   seconds++;
+  alarm();
   if (seconds === 60) {
     minutes++;
     seconds = 0;
-    alarm();
   }
   time.innerHTML =
     minutes.toString().length <= 1
@@ -38,12 +39,14 @@ startBtn.addEventListener('click', () => {
 resetBtn.addEventListener('click', () => {
   clearInterval(secondsInterval);
   time.innerHTML = '00:00';
-  minutes = 0;
-  seconds = 0;
+  minutes = seconds = 0;
   startBtn.innerHTML = 'Start';
-  alarmTime.value = '0';
+  alarmTime.value = alarmTimeSeconds.value = '0';
 });
 
 function alarm() {
-  minutes === parseInt(alarmTime.value) ? ringTone.play() : null;
+  minutes === parseInt(alarmTime.value) &&
+  seconds === parseInt(alarmTimeSeconds.value)
+    ? ringTone.play()
+    : null;
 }

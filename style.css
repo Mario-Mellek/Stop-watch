@@ -69,22 +69,33 @@ button:active {
   border-bottom: 2px solid black;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
-#alarm-time {
+#alarm-time--minutes,
+#alarm-time--seconds {
   text-align: center;
   background-color: black;
   color: white;
-  width: 25%;
+  width: 15%;
   border-radius: 1rem;
   font-size: large;
   border: none;
   box-shadow: 2px 2px 5px black;
   font-size: 1.5rem;
 }
-
+#alarm-time--minutes {
+  margin-right: 0.2rem;
+}
+#alarm-time--seconds {
+  margin-left: 0.2rem;
+}
 input[type='number']::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
-
+.dots {
+  display: flex;
+  align-items: center;
+  font-size: xx-large;
+  font-weight: 600;
+}
 @media only screen and (600px > width) {
   section {
     width: 90%;
