@@ -33,11 +33,11 @@ function alarm() {
 
 const timer = () => {
   seconds++;
-  alarm();
   if (seconds === 60) {
     minutes++;
     seconds = 0;
   }
+  alarm();
   time.innerHTML =
     minutes.toString().length <= 1
       ? `0${minutes}:${
