@@ -10,6 +10,27 @@ let secondsInterval;
 let minutes = 0;
 let seconds = 0;
 
+function flipAround() {
+  const front = document.getElementsByTagName('section')[0];
+  const back = document.getElementsByTagName('section')[1];
+  if (front.classList[0] === 'front') {
+    back.style.cssText = 'display:none;';
+    front.style.cssText = 'display:flex;';
+  } else if (front.classList[0] === 'back') {
+    back.style.cssText = 'display:flex;';
+    front.style.cssText = 'display:none;';
+  }
+}
+
+flipAround();
+
+function alarm() {
+  minutes === parseInt(alarmTime.value) &&
+  seconds === parseInt(alarmTimeSeconds.value)
+    ? ringTone.play()
+    : null;
+}
+
 const timer = () => {
   seconds++;
   alarm();
@@ -47,23 +68,14 @@ resetBtn.addEventListener('click', () => {
 
 flipbtn.addEventListener('click', () => {
   const section = document.getElementsByTagName('section')[0];
-  if (section.classList[0] === undefined) {
-    section.classList.add('fFlip');
+  if (section.classList.contains('front')) {
+    section.classList.replace('front', 'back');
+    flipAround();
     return;
   }
-  if (section.classList.contains('bFlip')) {
-    section.classList.replace('bFlip', 'fFlip');
-    return;
-  }
-  if (section.classList.contains('fFlip')) {
-    section.classList.replace('fFlip', 'bFlip');
+  if (section.classList.contains('back')) {
+    section.classList.replace('back', 'front');
+    flipAround();
     return;
   }
 });
-
-function alarm() {
-  minutes === parseInt(alarmTime.value) &&
-  seconds === parseInt(alarmTimeSeconds.value)
-    ? ringTone.play()
-    : null;
-}

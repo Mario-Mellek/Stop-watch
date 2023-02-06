@@ -12,8 +12,21 @@
 
 <body>
     <main>
-        <section>
+        <section class="front">
             <h2 class="title">Stop Watch</h2>
+            <h3 class="time">00:00</h3>
+            <div class="buttons">
+                <button class="start">Start</button>
+                <div class="alarm-time">
+                    <input type="number" name="number" id="alarm-time--minutes" value="0">
+                    <div class="dots">:</div>
+                    <input type="number" name="numberS" id="alarm-time--seconds" value="0">
+                </div>
+                <button class="reset">Reset</button>
+            </div>
+        </section>
+        <section class="backFace">
+            <h2 class="title">Timer</h2>
             <h3 class="time">00:00</h3>
             <div class="buttons">
                 <button class="start">Start</button>

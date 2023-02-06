@@ -21,7 +21,6 @@ section {
   background-color: rgb(109, 101, 101);
   border-radius: 5rem;
   box-shadow: 1px 1px 10px gray;
-  animation: scaling 0.5s forwards;
 }
 button {
   width: 10rem;
@@ -45,6 +44,8 @@ button:active {
   border: 2px solid black;
   border-radius: 0.5rem;
   box-shadow: 2px 2px 5px black;
+  opacity: 0;
+  animation: scaling 0.5s 0.5s forwards;
 }
 .buttons {
   display: flex;
@@ -119,7 +120,6 @@ small {
   box-shadow: 1px 1px 10px gray;
   font-family: cursive, sans-serif;
 }
-
 .alarm-time {
   display: flex;
   align-items: center;
@@ -129,7 +129,6 @@ small {
   border-radius: 1rem;
   box-shadow: 2px 2px 5px black;
 }
-
 @media only screen and (600px > width) {
   section {
     width: 95%;
@@ -142,29 +141,26 @@ small {
     width: 65%;
   }
 }
-section.fFlip {
-  animation: flipping 1s forwards;
-}
-section.bFlip {
-  animation: flipper 1s forwards;
-}
-
 @keyframes flipper {
   from {
     transform: rotateY(180deg);
-    backface-visibility: hidden;
   }
   to {
     transform: rotateY(360deg);
-    backface-visibility: visible;
-    display: none;
   }
 }
-
 @keyframes flipping {
-  to {
+  from {
     transform: rotateY(180deg);
-    backface-visibility: hidden;
-    display: none;
   }
+  to {
+    transform: rotateY(0deg);
+    background-color: rgb(58, 58, 88);
+  }
+}
+.front {
+  animation: flipper 1s forwards;
+}
+.backFace {
+  animation: flipping 1s forwards;
 }
