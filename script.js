@@ -38,7 +38,7 @@ const timer = () => {
     seconds = 0;
   }
   alarm();
-  time.innerHTML =
+  time.innerText =
     minutes.toString().length <= 1
       ? `0${minutes}:${
           seconds.toString().length <= 1 ? `0${seconds}` : `${seconds}`
@@ -49,20 +49,20 @@ const timer = () => {
 };
 
 startBtn.addEventListener('click', () => {
-  if (startBtn.innerHTML === 'Start') {
+  if (startBtn.innerText === 'Start') {
     secondsInterval = setInterval(timer, 1000);
-    startBtn.innerHTML = 'Stop';
+    startBtn.innerText = 'Stop';
   } else {
     clearInterval(secondsInterval);
-    startBtn.innerHTML = 'Start';
+    startBtn.innerText = 'Start';
   }
 });
 
 resetBtn.addEventListener('click', () => {
   clearInterval(secondsInterval);
-  time.innerHTML = '00:00';
+  time.innerText = '00:00';
   minutes = seconds = 0;
-  startBtn.innerHTML = 'Start';
+  startBtn.innerText = 'Start';
   alarmTime.value = alarmTimeSeconds.value = '0';
 });
 

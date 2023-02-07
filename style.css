@@ -89,7 +89,9 @@ button:active {
   margin-left: 0.2rem;
 }
 #alarm-time--minutes,
-#alarm-time--seconds:focus {
+#alarm-time--seconds,
+#watch-time--seconds,
+#watch-time--minutes:focus {
   outline: none;
 }
 input[type='number']::-webkit-inner-spin-button {
