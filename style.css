@@ -69,7 +69,9 @@ button:active {
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 #alarm-time--minutes,
-#alarm-time--seconds {
+#alarm-time--seconds,
+#watch-time--seconds,
+#watch-time--minutes {
   text-align: center;
   background-color: black;
   color: white;
