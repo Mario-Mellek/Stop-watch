@@ -20,9 +20,35 @@ const render = () => {
           : timerInputSeconds.value);
 };
 
+const reset = () => {
+  clearInterval(countDown_interval);
+  countDown_time.innerText = '00:00';
+  timerInputMinutes.value = timerInputSeconds.value = '0';
+  countDown_startBtn.innerText = 'Start';
+};
+
 const timeDown = () => {
-  timerInputSeconds.value--;
-  render();
+  if (parseInt(timerInputSeconds.value) != 0) {
+    timerInputSeconds.value--;
+    if (parseInt(timerInputSeconds.value) === 0) {
+      if (parseInt(timerInputMinutes.value) === 0) {
+        ringTone.play();
+        reset();
+        return;
+      }
+      timerInputMinutes.value--;
+      timerInputSeconds.value = '59';
+    }
+    render();
+  } else {
+    reset();
+    const warning = document.createElement('span');
+    warning.innerText = 'No input detected';
+    countDown_time.insertAdjacentElement('beforebegin', warning);
+    setTimeout(() => {
+      warning.remove();
+    }, 3000);
+  }
 };
 
 countDown_startBtn.addEventListener('click', () => {
@@ -35,3 +61,5 @@ countDown_startBtn.addEventListener('click', () => {
     countDown_startBtn.innerText = 'Start';
   }
 });
+
+countDown_resetBtn.addEventListener('click', reset);

@@ -170,3 +170,14 @@ small {
 .backFace {
   animation: flipping 1s forwards;
 }
+span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 7%;
+  border: 2px solid rgb(103, 106, 131);
+  color: whitesmoke;
+  font-size: medium;
+  border-radius: 1rem;
+}
