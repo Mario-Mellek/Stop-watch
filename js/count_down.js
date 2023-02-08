@@ -28,9 +28,9 @@ const reset = () => {
 };
 
 const timeDown = () => {
-  if (parseInt(timerInputSeconds.value) != 0) {
+  if (countDown_time.innerText !== '00:00') {
     timerInputSeconds.value--;
-    if (parseInt(timerInputSeconds.value) === 0) {
+    if (parseInt(timerInputSeconds.value) <= 0) {
       if (parseInt(timerInputMinutes.value) === 0) {
         ringTone.play();
         reset();
@@ -44,6 +44,9 @@ const timeDown = () => {
     reset();
     const warning = document.createElement('span');
     warning.innerText = 'No input detected';
+    warning.animate([{ transform: 'scale(0)' }, { transform: 'scale(1)' }], {
+      duration: 500,
+    });
     countDown_time.insertAdjacentElement('beforebegin', warning);
     setTimeout(() => {
       warning.remove();

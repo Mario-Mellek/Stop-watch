@@ -180,4 +180,13 @@ span {
   color: whitesmoke;
   font-size: medium;
   border-radius: 1rem;
+  animation: vanish 0.5s 2s forwards;
+}
+@keyframes vanish {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+  }
 }
